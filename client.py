@@ -2,10 +2,6 @@ import socket
 import threading
 import pygame
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 inputs = [False, False, False, False]
 pos = [0, 0]
 other_positions = [[0, 0]]
@@ -56,6 +52,13 @@ print("connected")
 
 socket_thread = threading.Thread(target=client.send_data)
 socket_thread.start()
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+
 running = True
 while running:
     screen.fill((0, 0, 0))
