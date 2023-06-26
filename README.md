@@ -1,1 +1,2 @@
-"# ethOS_project" 
+# ethOS_project
+A platformer made in pygame
