@@ -19,8 +19,8 @@ def make_input_data(input_list):
 
 
 class Client:
-    server_host = "127.0.0.1"
-    server_port = 4000
+    server_host = "0.tcp.in.ngrok.io"
+    server_port = 15296
     server_sock = None
     server_conn = None
     running = True
@@ -30,6 +30,7 @@ class Client:
 
     def connect(self):
         self.server_sock.connect((self.server_host, self.server_port))
+        print(self.server_sock.getsockname())
 
     def send_data(self):
         global pos

@@ -21,13 +21,13 @@ class Client_api:
     def parse_inputs(self):
         inps = [int(x) for x in self.data.split()]
         if inps[0]:
-            self.pos[1] -= 1
+            self.pos[1] -= 10
         if inps[1]:
-            self.pos[0] -= 1
+            self.pos[0] -= 10
         if inps[2]:
-            self.pos[1] += 1
+            self.pos[1] += 10
         if inps[3]:
-            self.pos[0] += 1
+            self.pos[0] += 10
 
 
 class Server:
@@ -36,7 +36,7 @@ class Server:
 
     def __init__(self) -> None:
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.bind(("0.0.0.0", 4000))
+        self.socket.bind(("localhost", 4000))
         print(socket.gethostbyname(socket.gethostname()))
         listen_thread = threading.Thread(target=self.listen_for_connections)
         listen_thread.start()
