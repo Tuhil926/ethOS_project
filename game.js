@@ -1,5 +1,3 @@
-// import { Player } from "./player";
-
 function draw_line(context, point1, point2, line_width=1, color="#000000"){
     context.moveTo(point1[0], point1[1]);
     context.lineTo(point2[0], point2[1]);
@@ -36,9 +34,8 @@ var WIDTH  = window.innerWidth;
 var HEIGHT = window.innerHeight;
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
-var screen = canvas.getContext("2d");
 
-const img = document.getElementById("demo");
+var screen = canvas.getContext("2d");
 
 var inputs = {w:false, a:false, s:false, d:false, space:false, mouse_pos:[0, 0]}
 onmousemove = function(e){inputs["mouse_pos"] = [e.x, e.y]}
@@ -52,7 +49,6 @@ document.addEventListener('keydown', (event)=> {
         case " ": {inputs.space = true;break};
     }
 });
-
 document.addEventListener('keyup', (event)=> {    
     switch (event.key){
         case "w": {inputs.w = false;break};
@@ -63,40 +59,20 @@ document.addEventListener('keyup', (event)=> {
     }
 });
 
-
+// Player class is in player.js
 player = new Player();
 
 
-let pos = [100, 100];
-dir = 1;
-
 function update(){
+    // update the canvas size when window is resized
     if (window.innerWidth != WIDTH || window.innerHeight != HEIGHT){
         WIDTH  = window.innerWidth;
         HEIGHT = window.innerHeight;
         canvas.width = WIDTH;
         canvas.height = HEIGHT;
     }
+    // fill the screen with a color
     draw_rectangle(screen, [0, 0, canvas.width, canvas.height], true, 0, "#505050");
-
-    // lines
-    draw_line(screen, [0, 0], [200, 200]);
-    // circles
-    draw_circle(screen, pos, 100, false, 10, "#FE3418");
-    draw_circle(screen, inputs.mouse_pos, 20, true, 0, "#00FFFF");
-    // rects
-    draw_rectangle(screen, [300, 400, 100, 200], true, 0, "#F34723");
-    // images
-    screen.drawImage(img, 100, 150);
-    if (inputs.w){
-        pos[0] += 9*dir;
-    }
-    // pos[1] += 3*dir;
-    if (pos[0] > WIDTH){
-        dir = -1;
-    } else if (pos[0] < 0){
-        dir = 1;
-    }
 
     player.update(inputs, 20/1000, canvas.height);
 
