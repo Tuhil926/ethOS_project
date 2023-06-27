@@ -19,8 +19,8 @@ def make_input_data(input_list):
 
 
 class Client:
-    server_host = "0.tcp.in.ngrok.io"
-    server_port = 15296
+    server_host = "192.168.137.105"
+    server_port = 4000
     server_sock = None
     server_conn = None
     running = True
