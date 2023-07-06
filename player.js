@@ -1,4 +1,6 @@
-class Player{
+// import 'Rect';
+
+class Player extends Rect{
     constructor(){
         this.pos = [299, 230];
         this.velocity = [0, 0];

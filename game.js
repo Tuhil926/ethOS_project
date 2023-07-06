@@ -37,8 +37,8 @@ canvas.height = HEIGHT;
 
 var screen = canvas.getContext("2d");
 
-var inputs = {w:false, a:false, s:false, d:false, space:false, mouse_pos:[0, 0]}
-onmousemove = function(e){inputs["mouse_pos"] = [e.x, e.y]}
+var inputs = {w:false, a:false, s:false, d:false, space:false, mouse_pos:[0, 0]};
+onmousemove = function(e){inputs["mouse_pos"] = [e.x, e.y]};
 
 document.addEventListener('keydown', (event)=> {    
     switch (event.key){
