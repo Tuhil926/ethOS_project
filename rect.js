@@ -2,6 +2,12 @@ class Rect {
     constructor(rect) {
         this.rect = rect;
     }
+    update_rect(pos, width, height){
+        this.rect[0] = pos[0] - width/2;
+        this.rect[1] = pos[1] - height/2;
+        this.rect[2] = width;
+        this.rect[3] = height;
+    }
     check_collision(other_rect) {
         if (other_rect.rect[0] + other_rect.rect[2] > this.rect[0] &&
             other_rect.rect[0] < this.rect[0] + this.rect[2] &&
