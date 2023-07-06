@@ -1,11 +1,8 @@
 // import 'Rect';
 
-class Player extends Rect{
+class Player extends Entity{
     constructor(){
-        this.pos = [299, 230];
-        this.velocity = [0, 0];
-        this.width = 50;
-        this.height = 100;
+        super([0, 0], 100, 100, "#FF1122");
     }
 
     draw(screen){
@@ -15,8 +12,9 @@ class Player extends Rect{
 
     update(inputs, dt, height){
         //update the position based on the formula dx = Velocity.dt (dt id the time between frames)
-        this.pos[0] += this.velocity[0]*dt;
-        this.pos[1] += this.velocity[1]*dt;
+        // this.pos[0] += this.velocity[0]*dt;
+        // this.pos[1] += this.velocity[1]*dt;
+        this.update_position(dt);
 
         // collision with floor. Other collisions with objects can also be handled here in the future
         if (this.pos[1] > height - this.height/2){
