@@ -62,6 +62,14 @@ document.addEventListener('keyup', (event)=> {
 // Player class is in player.js
 player = new Player();
 
+platforms = [];
+platforms.push(new Platform([100, HEIGHT - 90], 150, 10));
+platforms.push(new Platform([450, HEIGHT - 180], 150, 10));
+platforms.push(new Platform([800, HEIGHT - 270], 150, 10));
+platforms.push(new Platform([1150, HEIGHT - 360], 150, 10));
+platforms.push(new Platform([800, HEIGHT - 460], 150, 10));
+platforms.push(new Platform([400, HEIGHT - 460], 150, 10));
+
 
 function update(){
     // update the canvas size when window is resized
@@ -75,7 +83,11 @@ function update(){
     draw_rectangle(screen, [0, 0, canvas.width, canvas.height], true, 0, "#505050");
 
     player.update(inputs, 20/1000, canvas.height);
+    player.handle_platform_collisions(platforms);
 
+    for (let i = 0; i < platforms.length; i++){
+        platforms[i].draw(screen);
+    }
     player.draw(screen);
 
 }

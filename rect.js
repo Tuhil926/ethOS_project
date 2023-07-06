@@ -9,10 +9,10 @@ class Rect {
         this.rect[3] = height;
     }
     check_collision(other_rect) {
-        if (other_rect.rect[0] + other_rect.rect[2] > this.rect[0] &&
-            other_rect.rect[0] < this.rect[0] + this.rect[2] &&
-            other_rect.rect[1] + other_rect.rect[3] > this.rect[1] &&
-            other_rect.rect[1] < this.rect[1] + this.rect[3]) {
+        if (other_rect.rect[0] + other_rect.rect[2] >= this.rect[0] &&
+            other_rect.rect[0] <= this.rect[0] + this.rect[2] &&
+            other_rect.rect[1] + other_rect.rect[3] >= this.rect[1] &&
+            other_rect.rect[1] <= this.rect[1] + this.rect[3]) {
             return true;
         }
         else {
