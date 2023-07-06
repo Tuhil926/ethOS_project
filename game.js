@@ -70,6 +70,10 @@ platforms.push(new Platform([1150, HEIGHT - 360], 150, 10));
 platforms.push(new Platform([800, HEIGHT - 460], 150, 10));
 platforms.push(new Platform([400, HEIGHT - 460], 150, 10));
 
+entities = [player]
+
+portal = new Portal([1150, HEIGHT - 110, 100, 20], [200, 400]);
+
 
 function update(){
     // update the canvas size when window is resized
@@ -85,9 +89,12 @@ function update(){
     player.update(inputs, 20/1000, canvas.height);
     player.handle_platform_collisions(platforms);
 
+    portal.doEntityCollisions(entities);
+
     for (let i = 0; i < platforms.length; i++){
         platforms[i].draw(screen);
     }
+    portal.draw(screen);
     player.draw(screen);
 
 }
