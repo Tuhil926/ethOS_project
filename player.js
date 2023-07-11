@@ -14,10 +14,22 @@ class Player extends Entity{
     handle_platform_collisions(platforms){
         this.on_ground = false;
         for (let i = 0; i < platforms.length; i++){
-            if (platforms[i].check_collision(this)){
+            let collision_dir = platforms[i].check_collision_dir(this);
+            if (collision_dir == 1){
                 this.pos[1] = platforms[i].rect[1] - this.height/2;
                 this.velocity[1] = 0;
                 this.on_ground = true;
+            }else if (collision_dir == 3){
+                this.pos[1] = platforms[i].rect[1] + platforms[i].rect[3] + this.height/2;
+                this.velocity[1] = 0;
+            }
+            else if (collision_dir == 2){
+                this.pos[0] = platforms[i].rect[0] + platforms[i].rect[2] + this.width/2;
+                this.velocity[0] = 0;
+            }
+            else if (collision_dir == 4){
+                this.pos[0] = platforms[i].rect[0] - this.width/2;
+                this.velocity[0] = 0;
             }
         }
         // console.log(this.on_ground);
