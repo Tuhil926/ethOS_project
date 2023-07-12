@@ -1,0 +1,53 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:darkslateblue
+}
+#title{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    color: white;
+}
+#main-container{
+    background-color:beige;
+    height: calc(84vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+#userName{
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-family: 'Poppins', sans-serif;
+}
+#submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+    cursor:pointer;
+}
+#submit:hover,:focus{
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
